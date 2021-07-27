@@ -6,7 +6,16 @@ const model = (function () {
     [];
   }
 
-  function Person(id, date, name, phone, email, productName, productValue) {
+  function Person(
+    id,
+    date,
+    name,
+    phone,
+    email,
+    productName,
+    productValue,
+    status
+  ) {
     this.id = id;
     this.date = date;
     this.name = name;
@@ -14,9 +23,17 @@ const model = (function () {
     this.email = email;
     this.productName = productName;
     this.productValue = productValue;
+    this.status = status;
   }
 
-  function getValuesPerson(name, phone, email, productName, productValue) {
+  function getValuesPerson(
+    name,
+    phone,
+    email,
+    productName,
+    productValue,
+    status
+  ) {
     let id = getId(requests);
     let date = new Date().toLocaleDateString();
     let data = new Person(
@@ -26,7 +43,8 @@ const model = (function () {
       phone,
       email,
       productName,
-      productValue
+      productValue,
+      status
     );
 
     requests.push(data);

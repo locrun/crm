@@ -18,11 +18,13 @@ const controller = (function (model, view) {
         input.phone,
         input.email,
         productName,
-        input.optionValue
+        input.optionValue,
+        status
       );
       view.clearInput();
     }
 
+    // Сохраняем объект с данными в LocalStorage
     model.addToLocalStorage();
   }
 

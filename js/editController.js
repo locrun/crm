@@ -9,13 +9,16 @@ const editController = (function (model, view) {
     let txt = view.getSelText();
     let val = view.getSelVal();
 
+    let status = document.querySelector("#request_status");
+    console.log(status.value);
+
     // Создаем новый объект в Local Storage с измененными значениями
     let changedValues = view.changeValues(user, txt, val);
     localStorage.setItem("saveChanges", JSON.stringify(changedValues));
 
     // Получаем массив всех заявок для новых данных
     let allOrders = JSON.parse(localStorage.getItem("allOrders"));
-    
+
     // Отображаем результат измениний на страницы всех заявок
     for (let i = 0; i < allOrders.length; i++) {
       if (allOrders[i].id === changedValues.id) {
@@ -24,6 +27,7 @@ const editController = (function (model, view) {
         allOrders[i].name = changedValues.name;
         allOrders[i].phone = changedValues.phone;
         allOrders[i].email = changedValues.email;
+        allOrders[i].status = changedValues.status;
       }
     }
     // Добваляем измененные значения в массив со всеми заявками
