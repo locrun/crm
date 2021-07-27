@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>03 - Редактировать заявку</title>
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;subset=cyrillic-ext"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap&subset=cyrillic-ext"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="body--dashboard">
+    <!-- left-panel -->
+    <div class="left-panel blue-skin">
+      <!-- Logo -->
+      <div class="left-panel__logo">
+        <div class="left-panel__logo-title">CRM заявки</div>
+        <div class="left-panel__logo-subtitle">учебный проект webcademy</div>
+      </div>
+      <!-- // Logo -->
+      <!-- User -->
+      <div class="left-panel__user clearfix">
+        <div class="left-panel__user-photo">
+          <img src="img/avatars/avatar-128.jpg" alt="Avatar" />
+        </div>
+        <div class="left-panel__user-name">Петр <br />Васильевич</div>
+      </div>
+      <!-- // User -->
+      <!-- Navigation 1 -->
+      <div class="left-panel__navigation">
+        <div class="left-panel__navigation-title">Заявки</div>
+        <ul>
+          <li><a href="#" class="active">Все вместе</a></li>
+          <li>
+            <a href="#"
+              >Новые
+              <div class="badge">12</div></a
+            >
+          </li>
+          <li><a href="#">В работе</a></li>
+          <li><a href="#">Завершенные</a></li>
+          <li><a href="#">Архив</a></li>
+        </ul>
+      </div>
+      <!-- // Navigation 1 -->
+      <!-- Navigation 2 -->
+      <div class="left-panel__navigation">
+        <div class="left-panel__navigation-title">Продукты</div>
+        <ul>
+          <li><a href="#">Активные</a></li>
+          <li><a href="#">Архив</a></li>
+        </ul>
+      </div>
+      <!-- // Navigation 2 -->
+      <!-- Navigation 3 -->
+      <div class="left-panel__navigation left-panel__navigation--no-line">
+        <ul>
+          <li><a href="#">Выход</a></li>
+        </ul>
+      </div>
+      <!-- // Navigation 3 -->
+    </div>
+    <!-- // left-panel -->
+
+    <!-- main-wrapper -->
+    <div class="main-wrapper">
+      <div class="container-fluid">
+        <!-- row -->
+        <div class="row justify-content-between align-items-center">
+          <div class="col">
+            <div class="admin-heading-1">Работа с заявкой</div>
+          </div>
+          <div class="col text-right">
+            <a href="02-crm-all-bids.html" class="btn btn-link"
+              >Вернуться назад</a
+            >
+          </div>
+        </div>
+        <!-- // row -->
+        <!-- row -->
+        <div class="row">
+          <!-- col -->
+          <div class="col">
+            <form action="">
+              <!-- card -->
+              <div class="card mb-4">
+                <div class="card-header">Данные о заявке</div>
+                <div class="card-body">
+                  <div class="row mb-3">
+                    <div class="col-md-2">
+                      <strong>ID:</strong>
+                    </div>
+                    <div class="col" id="changeId"></div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-2">
+                      <strong>Дата создания:</strong>
+                    </div>
+                    <div class="col" id="changeDate"></div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-2">
+                      <strong>Продукт:</strong>
+                    </div>
+                    <div class="col">
+                      <select
+                        name="product"
+                        class="custom-select"
+                        id="product_name"
+                      >
+                        <option selected value="course-html">
+                          Курс по верстке
+                        </option>
+                        <option value="course-js">Курс по JavaScript</option>
+                        <option value="course-vue">Курс по VUE JS</option>
+                        <option value="course-php">Курс по PHP</option>
+                        <option value="course-wordpress">
+                          Курс по WordPress
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-2">
+                      <strong>Имя:</strong>
+                    </div>
+                    <div class="col">
+                      <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        id="changeName"
+                        value=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-2">
+                      <strong>Email:</strong>
+                    </div>
+                    <div class="col">
+                      <input
+                        type="text"
+                        name="email"
+                        id="changeEmail"
+                        class="form-control"
+                        value=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-2">
+                      <strong>Телефон:</strong>
+                    </div>
+                    <div class="col">
+                      <input
+                        type="text"
+                        name="phone"
+                        id="changePhone"
+                        class="form-control"
+                        value=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-2">
+                      <strong>Статус заявки:</strong>
+                    </div>
+                    <div class="col">
+                      <select
+                        name="product"
+                        class="custom-select"
+                        id="request_status"
+                      >
+                        <option selected="">Выберите...</option>
+                        <option value="1">Новая</option>
+                        <option value="2">В работе</option>
+                        <option value="3">Ожидается оплата</option>
+                        <option value="4">Завершена</option>
+                        <option value="5">Отказ</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row justify-content-between">
+                <div class="col">
+                  <a
+                    href="02-crm-all-bids.html"
+                    type="button"
+                    class="btn btn-primary"
+                    id="saveArhive"
+                    >Сохранить изменения</a
+                  >
+                </div>
+                <div class="col text-right">
+                  <a
+                    href="02-crm-all-bids.html"
+                    type="button"
+                    class="btn btn-dark"
+                    id="deleteArhive"
+                    >Удалить в архив</a
+                  >
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- //col -->
+        </div>
+        <!-- //row -->
+      </div>
+    </div>
+    <!-- // main-wrapper -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/editView.js"></script>
+    <script src="js/editController.js"></script>
+  </body>
+</html>
