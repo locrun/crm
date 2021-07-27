@@ -15,6 +15,24 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.in-work {
+  color: #000;
+  background-color: #ffc107;
+}
+.wait-payment {
+  background-color: #17a2b8;
+}
+.completed {
+  background-color: #28a745;
+}
+.reject {
+  background-color: #343a40;
+}
+.arhive {
+  background-color: #6c757d;
+}
+
 .link {
   margin-top: 10px;
   border-bottom: 2px solid rgb(19, 141, 223);

@@ -13,13 +13,13 @@ const controller = (function (model, view) {
     if (input.name === "" || input.email === "" || input.phone === "") {
       alert("Заполните пустые поля.");
     } else {
-      model.getValuesPerson(
+      model.getPersonalData(
         input.name,
         input.phone,
         input.email,
         productName,
         input.optionValue,
-        status
+        (status = "new")
       );
       view.clearInput();
     }

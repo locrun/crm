@@ -10,7 +10,7 @@ const view = (function () {
           <td>${email}</td>
           <td>${phone}</td>
           <td>
-            <div class="badge badge-pill badge-danger">Новый</div>
+            <div class="badge badge-pill badge-danger" >Новый</div>
           </td>
           <td>
             <a id="edit-btn" href="03-crm-edit-bid.html">Редактировать</a>

@@ -5,12 +5,10 @@ const editController = (function (model, view) {
   view.inputContents(user);
 
   function saveChangesToTheLocalstorage(e) {
+    //e.preventDefault();
     // Получить значения из Select и отобразить на странице редактирования
     let txt = view.getSelText();
     let val = view.getSelVal();
-
-    let status = document.querySelector("#request_status");
-    console.log(status.value);
 
     // Создаем новый объект в Local Storage с измененными значениями
     let changedValues = view.changeValues(user, txt, val);

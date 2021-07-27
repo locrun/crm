@@ -26,7 +26,7 @@ const model = (function () {
     this.status = status;
   }
 
-  function getValuesPerson(
+  function getPersonalData(
     name,
     phone,
     email,
@@ -69,6 +69,6 @@ const model = (function () {
   return {
     requests: requests,
     addToLocalStorage: addToLocalStorage,
-    getValuesPerson: getValuesPerson,
+    getPersonalData: getPersonalData,
   };
 })();

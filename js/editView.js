@@ -33,6 +33,7 @@ const view = (function () {
         name: (document.querySelector(DOMstrings.name).value = user.name),
         email: (document.querySelector(DOMstrings.email).value = user.email),
         phone: (document.querySelector(DOMstrings.phone).value = user.phone),
+        status: (document.querySelector(DOMstrings.status).value = user.status),
       };
     },
 
