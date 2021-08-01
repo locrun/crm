@@ -1,20 +1,19 @@
 const controller = (function (model, view) {
-  //Ждем пока страница загрузится
+  //Ждем пока весь  HTML загрузится
   document.addEventListener("DOMContentLoaded", () => {
     const data = JSON.parse(localStorage.getItem("allOrders"));
     const editButton = document.querySelectorAll("#edit-btn");
 
     // При нажатии на кнопку редактировать, по индексу
     // находим нужного пользователя и сохряняем данные
-    function findUserById(data, editButton) {
+    function findUserId(data, editButton) {
       editButton.forEach(function (btn, user) {
         btn.addEventListener("click", function (e) {
           localStorage.setItem("requestСhange", JSON.stringify(data[user]));
-          //e.preventDefault();
         });
       });
     }
-    findUserById(data, editButton);
+    findUserId(data, editButton);
 
     // по индексу
     // находим нужного пользователя и добавляем атрибут
@@ -58,51 +57,30 @@ const controller = (function (model, view) {
     detectStatus(data);
 
     // Сортировать заявки по названиям продуктов
-    function sortByName() {
-      let tr = document.querySelectorAll("[product-data]");
-      let select = document.querySelector("#inputGroupSelect01");
-      select.addEventListener("change", () => {
-        let value = select.options[select.selectedIndex].value;
+    view.filterProductName();
 
-        tr.forEach((item) => {
-          if (
-            value === item.getAttribute("product-data") ||
-            select.selectedIndex === 0
-          ) {
-            item.style.display = "";
-          } else {
-            item.style.display = "none";
-          }
-        });
-      });
-    }
-    sortByName();
+    //Сортировать заявки по статусам
+    view.filterSatus();
+
+    //Подсчет  колличества  вхождений
+    let b = document.querySelectorAll("[product-data]");
+    view.getStatCount();
   });
 
+  //Передаем  данные для разметки И отображаем разметку на странице
   //Передаем  данные для разметки
-  function setupEventListeners() {
-    let data = JSON.parse(localStorage.getItem("allOrders"));
-    //Передаем  данные для разметки
-    if (data) {
-      data.forEach((item) => {
-        view.displayMarkup(
-          item.id,
-          item.date,
-          item.productName,
-          item.name,
-          item.email,
-          item.phone,
-          item.productValue
-        );
-      });
-    }
+  const data = JSON.parse(localStorage.getItem("allOrders"));
+  if (data) {
+    data.forEach((item) => {
+      view.displayMarkupAllUserData(
+        item.id,
+        item.date,
+        item.productName,
+        item.name,
+        item.email,
+        item.phone,
+        item.productValue
+      );
+    });
   }
-
-  return {
-    init: function () {
-      setupEventListeners();
-    },
-  };
 })(model, view);
-
-controller.init();

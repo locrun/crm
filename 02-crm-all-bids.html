@@ -40,16 +40,11 @@
       <div class="left-panel__navigation">
         <div class="left-panel__navigation-title">Заявки</div>
         <ul>
-          <li><a href="#" class="active">Все вместе</a></li>
-          <li>
-            <a href="#"
-              >Новые
-              <div class="badge">12</div></a
-            >
-          </li>
-          <li><a href="#">В работе</a></li>
-          <li><a href="#">Завершенные</a></li>
-          <li><a href="#">Архив</a></li>
+          <li><a data-status="all" href="#" class="active">Все вместе </a></li>
+          <li><a data-status="new" href="#">Новые <div class="badge"></div></a></li>
+          <li><a data-status="in-work" href="#">В работе <div class="badge"></div></a></li>
+          <li><a data-status="completed" href="#">Завершенные <div class="badge"></div></a></li>
+          <li><a data-status="arhive" href="#">Архив  <div class="badge"></div></a></li>
         </ul>
       </div>
       <!-- // Navigation 1 -->
@@ -82,12 +77,12 @@
           <div class="row mb-3 justify-content-start">
             <!-- Col -->
             <div class="col">
-              <div class="btn-group" role="group" aria-label="...">
-                <a href="#" class="btn btn-light">Все</a>
-                <a href="#" class="btn btn-light">Новые</a>
-                <a href="#" class="btn btn-light">В работе</a>
-                <a href="#" class="btn btn-light">Завершенные</a>
-                <a href="#" class="btn btn-light">Архив</a>
+              <div class="btn-group " id="filter-status" role="group" aria-label="...">
+                <a href="#" data-status="all" class="btn btn-light active_status">Все</a>
+                <a href="#"  data-status="new" class="btn btn-light">Новые</a>
+                <a href="#" data-status="in-work"class="btn btn-light">В работе</a>
+                <a href="#" data-status="completed"class="btn btn-light">Завершенные</a>
+                <a href="#" data-status="arhive"class="btn btn-light">Архив</a>
               </div>
             </div>
             <!-- // Col -->

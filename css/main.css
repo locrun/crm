@@ -15,6 +15,9 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
+.active_status {
+  background-color: #dae0e5;
+}
 
 .in-work {
   color: #000;
