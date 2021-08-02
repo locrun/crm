@@ -63,7 +63,6 @@ const controller = (function (model, view) {
     view.filterSatus();
 
     //Подсчет  колличества  вхождений
-    let b = document.querySelectorAll("[product-data]");
     view.getStatCount();
   });
 

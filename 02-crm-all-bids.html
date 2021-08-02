@@ -40,11 +40,11 @@
       <div class="left-panel__navigation">
         <div class="left-panel__navigation-title">Заявки</div>
         <ul>
-          <li><a data-status="all" href="#" class="active">Все вместе </a></li>
-          <li><a data-status="new" href="#">Новые <div class="badge"></div></a></li>
-          <li><a data-status="in-work" href="#">В работе <div class="badge"></div></a></li>
-          <li><a data-status="completed" href="#">Завершенные <div class="badge"></div></a></li>
-          <li><a data-status="arhive" href="#">Архив  <div class="badge"></div></a></li>
+          <li><a data-status="all" href="#" class="active" data-status="all">Все вместе </a></li>
+          <li><a data-status="new" href="#">Новые <div class="badge left-panel-badge" data-status="new"></div></a></li>
+          <li><a data-status="in-work" href="#">В работе <div class="badge left-panel-badge" data-status="in-work" ></div></a></li>
+          <li><a data-status="completed" href="#">Завершенные <div class="badge left-panel-badge" data-status="completed"></div></a></li>
+          <li><a data-status="arhive" href="#">Архив  <div class="badge left-panel-badge"data-status="arhive"></div></a></li>
         </ul>
       </div>
       <!-- // Navigation 1 -->
@@ -77,7 +77,7 @@
           <div class="row mb-3 justify-content-start">
             <!-- Col -->
             <div class="col">
-              <div class="btn-group " id="filter-status" role="group" aria-label="...">
+              <div class="btn-group " id="top_panel" role="group" aria-label="...">
                 <a href="#" data-status="all" class="btn btn-light active_status">Все</a>
                 <a href="#"  data-status="new" class="btn btn-light">Новые</a>
                 <a href="#" data-status="in-work"class="btn btn-light">В работе</a>

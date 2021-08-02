@@ -47,15 +47,57 @@ const view = (function () {
       });
     });
   }
-  // Сортировать заявки по статусам
-  function filterSatus() {
-    const statusItemContainer = document.querySelector("#filter-status");
-    const item = statusItemContainer.querySelectorAll("a");
-    const row = document.querySelectorAll("[data]");
 
-    statusItemContainer.addEventListener("click", (e) => {
-      const target = e.target.getAttribute("data-status");
-      row.forEach((item) => {
+  // Сортировать заявки по статусам
+  // const DOM = {
+  //   topPanel: "#filter-status",
+  //   leftPanel: ".left-panel__navigation ul",
+  //   navItem: "[data-status]",
+  //   badges: "[data]",
+  // };
+
+  // function getDomStrings() {
+  //   return {
+  //     topPanel: document.querySelector(DOM.topPanel),
+  //     leftPanel: document.querySelector(DOM.leftPanel),
+  //     navItem: document.querySelectorAll(DOM.navItem),
+  //     badges: document.querySelectorAll(DOM.badges),
+  //   };
+  // }
+
+  function filterSatus() {
+    const topPanel = document.querySelector("#top_panel");
+    const topPanelItem = topPanel.querySelectorAll("a");
+    const leftPanel = document.querySelector(".left-panel__navigation ul");
+    const leftPanelItem = leftPanel.querySelectorAll("a");
+    const badges = document.querySelectorAll("[data]");
+
+    // Прослушиваем событие клик по верхней панели навигации
+    topPanel.addEventListener("click", (e) => {
+      const target = e.target.dataset.status;
+      badges.forEach((badge) => {
+        if (target === badge.getAttribute("data") || target === "all") {
+          badge.closest("tr").style.display = "";
+        } else {
+          badge.closest("tr").style.display = "none";
+        }
+      });
+      //Вешаем класс на активную кнопку
+      topPanelItem.forEach((item, index) => {
+        item.classList.remove("active_status");
+        leftPanelItem[index].classList.remove("active");
+        if (e.target === item) {
+          item.classList.add("active_status");
+          leftPanelItem[index].classList.add("active");
+        }
+      });
+    });
+
+    // Прослушиваем событие клик по левой панели навигации
+    leftPanel.addEventListener("click", (e) => {
+      const target = e.target.dataset.status;
+
+      badges.forEach((item) => {
         if (target === item.getAttribute("data") || target === "all") {
           item.closest("tr").style.display = "";
         } else {
@@ -63,11 +105,18 @@ const view = (function () {
         }
       });
 
-      // Вешаем класс на активную кнопку
-      item.forEach((item) => {
-        item.classList.remove("active_status");
-        if (e.target == item) {
-          item.classList.add("active_status");
+      //Вешаем класс на активную кнопку
+      leftPanelItem.forEach((item, index) => {
+        item.classList.remove("active");
+        topPanelItem[index].classList.remove("active_status");
+        if (e.target === item || e.target === item.lastChild) {
+          item.classList.add("active");
+          topPanelItem[index].classList.add("active_status");
+        }
+
+        // Проверяем клик на дочерний елемент
+        if (e.target === item.lastChild) {
+          item.lastChild.parentElement.classList.add("active");
         }
       });
     });
@@ -76,9 +125,6 @@ const view = (function () {
   // Сделать общий подсчет каждого из статусов на странице
   // и отобразить результат  в левой панели
   function getStatCount() {
-    const parentItem = document.querySelector(".left-panel__navigation ul");
-    const item = document.querySelectorAll("[data-status]");
-
     let newItem = document.querySelector('[data-status="new"]');
     let newLength = document.querySelectorAll("[data='new']").length;
 
@@ -96,16 +142,6 @@ const view = (function () {
     work.lastElementChild.textContent = workLength;
     completed.lastElementChild.textContent = completedLength;
     arhive.lastElementChild.textContent = arhiveLength;
-
-    parentItem.addEventListener("click", (e) => {
-      item.forEach((item) => {
-        if (e.target === item) {
-          item.classList.add("active");
-        } else {
-          item.classList.remove("active");
-        }
-      });
-    });
   }
 
   return {
